@@ -28,19 +28,59 @@ paths:
               $ref: '#/definitions/Book'
           examples:
             application/json:
-              - title: Favourite programming language?
-                description: xyz
-                publication_date: '2015-08-05'
-                author_id: 34589
+              - id: 98984500
+                title: "Swamplandia!"
+                description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
+                publication_date: '2011-07-26'
+                author:
+                  first_name: Karen
+                  last_name: Russell
+                  website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
+                  birthdate: UNKNOWN
                 reviews:
-                  - reviewer: Swift
-                    grade: A
-                  - reviewer: Python
-                    grade: B
-                  - reviewer: Objective-C
-                    grade: A
-                  - reviewer: Ruby
-                    grade: A
+                  - reviewer_name: Mallard Swift
+                    reviewer_id: 00090
+                    score: 90
+                    summary: "I turned those pages!"
+                  - reviewer: Pierre Valentine
+                    reviewer_id: 00789
+                    score: 89
+                    summary: "Vivid, but I wanted more."
+                  - reviewer: Opal Mild
+                    reviewer_id: 00535
+                    score: 77
+                    summary: "Don't read if you're afraid of gators."
+                  - reviewer: Rusty Rioja
+                    reviewer_id: 13008
+                    score: 100
+                    summary: "PAGETURNER!"
+  /book:
+    x-summary: Individual Book
+    get:
+      summary: Show a Single Book
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Book'
+          examples:
+            application/json:
+              id: 98984500
+              title: "Swamplandia!"
+              description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
+              publication_date: '2011-07-26'
+              author:
+                first_name: Karen
+                last_name: Russell
+                website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
+                birthdate: UNKNOWN
+              reviews:
+                - reviewer_name: Mallard Swift
+                  reviewer_id: 00090
+                  score: 90
+                  summary: "I turned those pages!"
   /reviews:
     x-summary: Reviews Collection
     get:
@@ -54,19 +94,14 @@ paths:
               $ref: '#/definitions/Review'
           examples:
             application/json:
-              - title: Favourite programming language?
-                description: xyz
-                publication_date: '2015-08-05'
-                author_id: 34589
-                ratings:
-                  - reviewer: Swift
-                    grade: A
-                  - reviewer: Python
-                    grade: B
-                  - reviewer: Objective-C
-                    grade: A
-                  - reviewer: Ruby
-                    grade: A
+              - reviewer: Opal Mild
+                reviewer_id: 00535
+                score: 77
+                summary: "Don't read if you're afraid of gators."
+              - reviewer: Rusty Rioja
+                reviewer_id: 13008
+                score: 100
+                summary: "PAGETURNER!"
     post:
       description: >-
         You may create your own review using this action. It takes a JSON
@@ -85,22 +120,34 @@ paths:
             $ref: '#/definitions/Review'
           examples:
             application/json:
-                question: Favourite programming language?
-                published_at: '2015-08-05T08:40:51.620Z'
-                choices:
-                  - choice: Swift
-                    votes: 0
-                  - choice: Python
-                    votes: 0
-                  - choice: Objective-C
-                    votes: 0
-                  - choice: Ruby
-                    votes: 0
+                reviewer: Maria Ott
+                reviewer_id: 13010
+                score: 95
+                summary: "Gripping!"
+  /review:
+    x-summary: Individual Review
+    get:
+      summary: Get a Single Review
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Review'
+          examples:
+            application/json:
+              reviewer: Opal Mild
+              reviewer_id: 00535
+              score: 77
+              summary: "Don't read if you're afraid of gators."
 definitions:
   Book:
     title: Book
     type: object
     properties:
+      id:
+        type: integer
       title:
         type: string
       publication_date:
@@ -122,6 +169,7 @@ definitions:
         items:
           $ref: '#/definitions/Review'
     required:
+      - id
       - title
       - publication_date
       - author
@@ -129,6 +177,8 @@ definitions:
     title: Review
     type: object
     properties:
+      id:
+        type: integer
       reviewer_name:
         type: string
       reviewer_id:
@@ -142,8 +192,25 @@ definitions:
       full_text:
         type: string
     required:
+      - id
       - reviewer_name
       - reviewer_id
       - score
       - summary
-      - full_text
+  Reviewer:
+    title: Reviewer
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      reviews_count:
+        type: integer
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/Review'
+    required:
+      - id
+      - name
