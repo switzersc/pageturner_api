@@ -35,10 +35,18 @@ paths:
                 last_name: Russell
                 website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
                 birthdate: UNKNOWN
-  /author:
+  /authors/{id}:
     x-summary: Individual Author
     get:
       summary: Get a Single Author
+      parameters: 
+        - 
+          name: "id"
+          in: "path"
+          description: "ID of author to fetch"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         200:
           description: Successful Response
@@ -105,10 +113,17 @@ paths:
                       reviewer_id: 13008
                       score: 100
                       summary: "PAGETURNER!"
-  /book:
+  /books/{id}:
     x-summary: Individual Book
     get:
       summary: Show a Single Book
+      parameters: 
+        - 
+          name: "id"
+          in: "path"
+          description: "ID or slug of book to fetch"
+          required: true
+          type: "string"
       responses:
         200:
           description: Successful Response
@@ -199,10 +214,18 @@ paths:
               score: 95
               summary: "Gripping!"
               full_text: "What a wonderful, exotic, American tale!"
-  /review:
+  /reviews/{id}:
     x-summary: Individual Review
     get:
       summary: Get a Single Review
+      parameters: 
+        - 
+          name: "id"
+          in: "path"
+          description: "ID of review to fetch"
+          required: true
+          type: "integer"
+          format: "int64"
       responses:
         200:
           description: Successful Response
@@ -223,7 +246,13 @@ paths:
         You may update your own review using this action. It takes a JSON
         object containing a review, and must reference the book it is associated with.
       summary: Update a Review
-      parameters:
+      parameters: 
+        - name: "id"
+          in: "path"
+          description: "ID of review being updated"
+          required: true
+          type: "integer"
+          format: "int64"
         - name: body
           in: body
           required: true
