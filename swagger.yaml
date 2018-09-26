@@ -35,6 +35,13 @@ paths:
                 last_name: Russell
                 website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
                 birthdate: UNKNOWN
+              - _links:
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234455"
+                id: 234455
+                first_name: William
+                last_name: Shakespeare
+                website: https://www.penguinrandomhouse.com/authors/70455/william-shakespeare/
+                birthdate: UNKNOWN
   /authors/{id}:
     x-summary: Individual Author
     get:
@@ -114,6 +121,23 @@ paths:
                       reviewer_id: 13008
                       score: 100
                       summary: "PAGETURNER!"
+              - _links:
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/hamlet-william-shakespeare"
+                  author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234455"
+                id: 98984590
+                title: "Hamlet"
+                description: "Death and destruction in medival Denmark."
+                publication_date: '1600-07-08'
+                _embedded:
+                  reviews:
+                    - _links:
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345789"
+                        book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/hamlet-william-shakespeare"
+                      reviewer_name: Mallard Swift
+                      reviewer_id: 10090
+                      score: 33
+                      summary: "Dull as Danes"
+                      full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
   /books/{id}:
     x-summary: Individual Book
     get:
@@ -223,6 +247,14 @@ paths:
                 reviewer_id: 13008
                 score: 100
                 summary: "PAGETURNER!"
+              - _links:
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345789"
+                  book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/hamlet-william-shakespeare"
+                reviewer_name: Mallard Swift
+                reviewer_id: 10090
+                score: 33
+                summary: "Dull as Danes"
+                full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
     post:
       description: >-
         You may create your own review using this action. It takes a JSON
