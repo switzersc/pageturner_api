@@ -15,6 +15,44 @@ consumes:
 produces:
 - application/json
 paths:
+  /authors:
+    x-summary: Authors
+    get:
+      summary: List All Authors
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Author'
+          examples:
+            application/json:
+              - _links:
+                  self: "https://pageturner.apiary.io/authors/234443"
+                id: 234443
+                first_name: Karen
+                last_name: Russell
+                website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
+                birthdate: UNKNOWN
+  /author:
+    x-summary: Individual Author
+    get:
+      summary: Get a Single Author
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            $ref: '#/definitions/Author'
+          examples:
+            application/json:
+              _links:
+                self: "https://pageturner.apiary.io/authors/234443"
+              id: 234443
+              first_name: Karen
+              last_name: Russell
+              website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
+              birthdate: UNKNOWN
   /books:
     x-summary: Books Collection
     get:
@@ -28,32 +66,45 @@ paths:
               $ref: '#/definitions/Book'
           examples:
             application/json:
-              - id: 98984500
+              - _links:
+                  self: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                  author: "https://pageturner.apiary.io/authors/234443"
+                id: 98984500
                 title: "Swamplandia!"
                 description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
                 publication_date: '2011-07-26'
-                author:
-                  first_name: Karen
-                  last_name: Russell
-                  website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
-                  birthdate: UNKNOWN
-                reviews:
-                  - reviewer_name: Mallard Swift
-                    reviewer_id: 00090
-                    score: 90
-                    summary: "I turned those pages!"
-                  - reviewer: Pierre Valentine
-                    reviewer_id: 00789
-                    score: 89
-                    summary: "Vivid, but I wanted more."
-                  - reviewer: Opal Mild
-                    reviewer_id: 00535
-                    score: 77
-                    summary: "Don't read if you're afraid of gators."
-                  - reviewer: Rusty Rioja
-                    reviewer_id: 13008
-                    score: 100
-                    summary: "PAGETURNER!"
+                _embedded:
+                  reviews:
+                    - _links:
+                        self: "https://pageturner.apiary.io/reviews/345900"
+                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      reviewer_name: Mallard Swift
+                      reviewer_id: 00090
+                      score: 90
+                      summary: "I turned those pages!"
+                      full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
+                    - _links:
+                        self: "https://pageturner.apiary.io/reviews/345959"
+                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      reviewer: Pierre Valentine
+                      reviewer_id: 00789
+                      score: 89
+                      summary: "Vivid, but I wanted more."
+                    - _links:
+                        self: "https://pageturner.apiary.io/reviews/345997"
+                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      reviewer: Opal Mild
+                      reviewer_id: 00535
+                      score: 77
+                      summary: "Don't read if you're afraid of gators."
+                      full_text: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rhoncus augue massa, lobortis tincidunt purus laoreet eget. Quisque ornare velit in libero imperdiet vestibulum. Mauris sagittis vulputate mi id rutrum. Cras a malesuada turpis, malesuada vestibulum augue. Sed eget turpis dolor. Nunc tempus tortor sapien, luctus tincidunt metus efficitur ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec rhoncus pretium eros sed elementum. Pellentesque bibendum bibendum velit eget tristique. Mauris justo dolor, gravida nec ante non, efficitur euismod nisl. Fusce pellentesque libero ipsum, vel varius leo bibendum eu."
+                    - _links:
+                        self: "https://pageturner.apiary.io/reviews/345999"
+                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      reviewer: Rusty Rioja
+                      reviewer_id: 13008
+                      score: 100
+                      summary: "PAGETURNER!"
   /book:
     x-summary: Individual Book
     get:
@@ -62,9 +113,7 @@ paths:
         200:
           description: Successful Response
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/Book'
+            $ref: '#/definitions/Book'
           examples:
             application/json:
               id: 98984500
@@ -94,11 +143,33 @@ paths:
               $ref: '#/definitions/Review'
           examples:
             application/json:
-              - reviewer: Opal Mild
+              - _links:
+                  self: "https://pageturner.apiary.io/reviews/345900"
+                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                reviewer_name: Mallard Swift
+                reviewer_id: 00090
+                score: 90
+                summary: "I turned those pages!"
+                full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
+              - _links:
+                  self: "https://pageturner.apiary.io/reviews/345959"
+                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                reviewer: Pierre Valentine
+                reviewer_id: 00789
+                score: 89
+                summary: "Vivid, but I wanted more."
+              - _links:
+                  self: "https://pageturner.apiary.io/reviews/345997"
+                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                reviewer: Opal Mild
                 reviewer_id: 00535
                 score: 77
                 summary: "Don't read if you're afraid of gators."
-              - reviewer: Rusty Rioja
+                full_text: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rhoncus augue massa, lobortis tincidunt purus laoreet eget. Quisque ornare velit in libero imperdiet vestibulum. Mauris sagittis vulputate mi id rutrum. Cras a malesuada turpis, malesuada vestibulum augue. Sed eget turpis dolor. Nunc tempus tortor sapien, luctus tincidunt metus efficitur ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec rhoncus pretium eros sed elementum. Pellentesque bibendum bibendum velit eget tristique. Mauris justo dolor, gravida nec ante non, efficitur euismod nisl. Fusce pellentesque libero ipsum, vel varius leo bibendum eu."
+              - _links:
+                  self: "https://pageturner.apiary.io/reviews/345999"
+                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                reviewer: Rusty Rioja
                 reviewer_id: 13008
                 score: 100
                 summary: "PAGETURNER!"
@@ -115,15 +186,19 @@ paths:
             $ref: '#/definitions/Review'
       responses:
         201:
-          description: ''
+          description: 'Successful Response'
           schema:
             $ref: '#/definitions/Review'
           examples:
             application/json:
-                reviewer: Maria Ott
-                reviewer_id: 13010
-                score: 95
-                summary: "Gripping!"
+              _links:
+                self: "https://pageturner.apiary.io/reviews/346000"
+                book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+              reviewer: Maria Ott
+              reviewer_id: 13010
+              score: 95
+              summary: "Gripping!"
+              full_text: "What a wonderful, exotic, American tale!"
   /review:
     x-summary: Individual Review
     get:
@@ -132,42 +207,68 @@ paths:
         200:
           description: Successful Response
           schema:
-            type: object
-            items:
-              $ref: '#/definitions/Review'
+            $ref: '#/definitions/Review'
           examples:
             application/json:
-              reviewer: Opal Mild
-              reviewer_id: 00535
-              score: 77
-              summary: "Don't read if you're afraid of gators."
+              _links:
+                self: "https://pageturner.apiary.io/reviews/346000"
+                book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+              reviewer: Maria Ott
+              reviewer_id: 13010
+              score: 95
+              summary: "Gripping!"
+              full_text: "What a wonderful, exotic, American tale!"
+    put:
+      description: >-
+        You may update your own review using this action. It takes a JSON
+        object containing a review, and must reference the book it is associated with.
+      summary: Update a Review
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Review'
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/Review'
+          examples:
+            application/json:
+              _links:
+                self: "https://pageturner.apiary.io/reviews/346000"
+                book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+              reviewer: Maria Ott
+              reviewer_id: 13010
+              score: 95
+              summary: "A rollercoaster!"
+              full_text: "What a wonderful, exotic, American tale!"
 definitions:
   Book:
     title: Book
     type: object
     properties:
+      _links:
+        type: object
+        properties:
+          self:
+            type: string
+          author:
+            type: string
       id:
         type: integer
       title:
         type: string
       publication_date:
         type: string
-      author:
+      _embedded:
         type: object
         properties:
-          first_name:
-            type: string
-          last_name:
-            type: string
-          website:
-            type: string
-          birthdate:
-            type: string
-            format: date
-      reviews:
-        type: array
-        items:
-          $ref: '#/definitions/Review'
+          reviews:
+            type: array
+            items:
+              $ref: '#/definitions/Review'
     required:
       - id
       - title
@@ -177,6 +278,13 @@ definitions:
     title: Review
     type: object
     properties:
+      _links:
+        type: object
+        properties:
+          self:
+            type: string
+          book:
+            type: string
       id:
         type: integer
       reviewer_name:
@@ -201,6 +309,11 @@ definitions:
     title: Reviewer
     type: object
     properties:
+      _links:
+        type: object
+        properties:
+          self:
+            type: string
       id:
         type: integer
       name:
@@ -214,3 +327,27 @@ definitions:
     required:
       - id
       - name
+  Author:
+    title: Author
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self:
+            type: string
+      id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      website:
+        type: string
+      birthdate:
+        type: string
+        format: date
+    required: 
+      - id
+      - first_name
+      - last_name
