@@ -29,7 +29,7 @@ paths:
           examples:
             application/hal+json:
               - _links:
-                  self: "https://pageturner.apiary.io/authors/234443"
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234443"
                 id: 234443
                 first_name: Karen
                 last_name: Russell
@@ -56,7 +56,7 @@ paths:
           examples:
             application/hal+json:
               _links:
-                self: "https://pageturner.apiary.io/authors/234443"
+                self: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234443"
               id: 234443
               first_name: Karen
               last_name: Russell
@@ -76,8 +76,8 @@ paths:
           examples:
             application/hal+json:
               - _links:
-                  self: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
-                  author: "https://pageturner.apiary.io/authors/234443"
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
+                  author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234443"
                 id: 98984500
                 title: "Swamplandia!"
                 description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
@@ -85,31 +85,31 @@ paths:
                 _embedded:
                   reviews:
                     - _links:
-                        self: "https://pageturner.apiary.io/reviews/345900"
-                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345900"
+                        book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                       reviewer_name: Mallard Swift
-                      reviewer_id: 00090
+                      reviewer_id: 10090
                       score: 90
                       summary: "I turned those pages!"
                       full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
                     - _links:
-                        self: "https://pageturner.apiary.io/reviews/345959"
-                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345959"
+                        book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                       reviewer: Pierre Valentine
-                      reviewer_id: 00789
+                      reviewer_id: 10789
                       score: 89
                       summary: "Vivid, but I wanted more."
                     - _links:
-                        self: "https://pageturner.apiary.io/reviews/345997"
-                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345997"
+                        book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                       reviewer: Opal Mild
-                      reviewer_id: 00535
+                      reviewer_id: 10535
                       score: 77
                       summary: "Don't read if you're afraid of gators."
                       full_text: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rhoncus augue massa, lobortis tincidunt purus laoreet eget. Quisque ornare velit in libero imperdiet vestibulum. Mauris sagittis vulputate mi id rutrum. Cras a malesuada turpis, malesuada vestibulum augue. Sed eget turpis dolor. Nunc tempus tortor sapien, luctus tincidunt metus efficitur ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec rhoncus pretium eros sed elementum. Pellentesque bibendum bibendum velit eget tristique. Mauris justo dolor, gravida nec ante non, efficitur euismod nisl. Fusce pellentesque libero ipsum, vel varius leo bibendum eu."
                     - _links:
-                        self: "https://pageturner.apiary.io/reviews/345999"
-                        book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345999"
+                        book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                       reviewer: Rusty Rioja
                       reviewer_id: 13008
                       score: 100
@@ -125,7 +125,7 @@ paths:
           description: "ID or slug of book to fetch"
           required: true
           type: "string"
-          x-example: "swamplandia-karen-russel"
+          x-example: "swamplandia-karen-russell"
       responses:
         200:
           description: Successful Response
@@ -134,8 +134,8 @@ paths:
           examples:
             application/hal+json:
               _links:
-                self: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
-                author: "https://pageturner.apiary.io/authors/234443"
+                self: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
+                author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234443"
               id: 98984500
               title: "Swamplandia!"
               description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
@@ -143,34 +143,34 @@ paths:
               _embedded:
                 reviews:
                   - _links:
-                      self: "https://pageturner.apiary.io/reviews/345900"
-                      book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345900"
+                      book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                     id: 345900
                     reviewer_name: Mallard Swift
-                    reviewer_id: 00090
+                    reviewer_id: 10090
                     score: 90
                     summary: "I turned those pages!"
                     full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
                   - _links:
-                      self: "https://pageturner.apiary.io/reviews/345959"
-                      book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345959"
+                      book: "https://private-f9a269-pageturnerapi.apiary-mock.combooks/swamplandia-karen-russell"
                     id: 345959
                     reviewer: Pierre Valentine
-                    reviewer_id: 00789
+                    reviewer_id: 10789
                     score: 89
                     summary: "Vivid, but I wanted more."
                   - _links:
-                      self: "https://pageturner.apiary.io/reviews/345997"
-                      book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345997"
+                      book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                     id: 345997
                     reviewer: Opal Mild
-                    reviewer_id: 00535
+                    reviewer_id: 10535
                     score: 77
                     summary: "Don't read if you're afraid of gators."
                     full_text: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rhoncus augue massa, lobortis tincidunt purus laoreet eget. Quisque ornare velit in libero imperdiet vestibulum. Mauris sagittis vulputate mi id rutrum. Cras a malesuada turpis, malesuada vestibulum augue. Sed eget turpis dolor. Nunc tempus tortor sapien, luctus tincidunt metus efficitur ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec rhoncus pretium eros sed elementum. Pellentesque bibendum bibendum velit eget tristique. Mauris justo dolor, gravida nec ante non, efficitur euismod nisl. Fusce pellentesque libero ipsum, vel varius leo bibendum eu."
                   - _links:
-                      self: "https://pageturner.apiary.io/reviews/345999"
-                      book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                      self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345999"
+                      book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                     id: 345997
                     reviewer: Rusty Rioja
                     reviewer_id: 13008
@@ -190,8 +190,8 @@ paths:
           examples:
             application/hal+json:
               - _links:
-                  self: "https://pageturner.apiary.io/reviews/345900"
-                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345900"
+                  book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                 id: 345900
                 reviewer_name: Mallard Swift
                 reviewer_id: 00090
@@ -199,16 +199,16 @@ paths:
                 summary: "I turned those pages!"
                 full_text: "Nam malesuada, ex nec convallis euismod, mauris arcu porta nisl, eu interdum sem nunc id elit. Phasellus elit augue, convallis quis massa id, congue sagittis est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis dignissim lacus. Quisque blandit aliquam erat sit amet interdum. Proin venenatis metus vel sollicitudin consequat. Integer varius euismod enim vel vulputate. In metus mauris, suscipit mattis efficitur cursus, semper et lorem. Nullam aliquam non ante a mattis. Nunc at tincidunt quam, eu suscipit odio. Suspendisse potenti. Mauris imperdiet eu magna quis scelerisque. Sed venenatis, mi non faucibus blandit, purus lectus molestie ex, at venenatis urna orci ut lorem. Suspendisse purus tortor, cursus non lorem sed, consectetur tincidunt est. Phasellus suscipit est non dolor tristique, a tempus lorem pulvinar."
               - _links:
-                  self: "https://pageturner.apiary.io/reviews/345959"
-                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345959"
+                  book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                 id: 345959
                 reviewer: Pierre Valentine
                 reviewer_id: 00789
                 score: 89
                 summary: "Vivid, but I wanted more."
               - _links:
-                  self: "https://pageturner.apiary.io/reviews/345997"
-                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345997"
+                  book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                 id: 345997
                 reviewer: Opal Mild
                 reviewer_id: 00535
@@ -216,8 +216,8 @@ paths:
                 summary: "Don't read if you're afraid of gators."
                 full_text: "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rhoncus augue massa, lobortis tincidunt purus laoreet eget. Quisque ornare velit in libero imperdiet vestibulum. Mauris sagittis vulputate mi id rutrum. Cras a malesuada turpis, malesuada vestibulum augue. Sed eget turpis dolor. Nunc tempus tortor sapien, luctus tincidunt metus efficitur ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec rhoncus pretium eros sed elementum. Pellentesque bibendum bibendum velit eget tristique. Mauris justo dolor, gravida nec ante non, efficitur euismod nisl. Fusce pellentesque libero ipsum, vel varius leo bibendum eu."
               - _links:
-                  self: "https://pageturner.apiary.io/reviews/345999"
-                  book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                  self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/345999"
+                  book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
                 id: 345997
                 reviewer: Rusty Rioja
                 reviewer_id: 13008
@@ -242,8 +242,8 @@ paths:
           examples:
             application/hal+json:
               _links:
-                self: "https://pageturner.apiary.io/reviews/346000"
-                book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/346000"
+                book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
               id: 346000
               reviewer: Maria Ott
               reviewer_id: 13010
@@ -271,8 +271,8 @@ paths:
           examples:
             application/hal+json:
               _links:
-                self: "https://pageturner.apiary.io/reviews/346000"
-                book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/346000"
+                book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
               id: 346000
               reviewer: Maria Ott
               reviewer_id: 13010
@@ -305,8 +305,8 @@ paths:
           examples:
             application/hal+json:
               _links:
-                self: "https://pageturner.apiary.io/reviews/346000"
-                book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
+                self: "https://private-f9a269-pageturnerapi.apiary-mock.com/reviews/346000"
+                book: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
               id: 346000
               reviewer: Maria Ott
               reviewer_id: 13010
