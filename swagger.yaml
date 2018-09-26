@@ -35,6 +35,15 @@ paths:
                 last_name: Russell
                 website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
                 birthdate: UNKNOWN
+                _embedded:
+                  books:
+                    - _links:
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
+                        author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234443"
+                      id: 98984500
+                      title: "Swamplandia!"
+                      description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
+                      publication_date: '2011-07-26'
               - _links:
                   self: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234455"
                 id: 234455
@@ -42,6 +51,15 @@ paths:
                 last_name: Shakespeare
                 website: https://www.penguinrandomhouse.com/authors/70455/william-shakespeare/
                 birthdate: UNKNOWN
+                _embedded:
+                  books:
+                    - _links:
+                        self: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/hamlet-william-shakespeare"
+                        author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234455"
+                      id: 98984590
+                      title: "Hamlet"
+                      description: "Death and destruction in medieval Denmark."
+                      publication_date: '1600-07-08'
   /authors/{id}:
     x-summary: Individual Author
     get:
@@ -69,6 +87,15 @@ paths:
               last_name: Russell
               website: https://www.penguinrandomhouse.com/authors/70463/karen-russell/
               birthdate: UNKNOWN
+              _embedded:
+                books:
+                  - _links:
+                      self: "https://private-f9a269-pageturnerapi.apiary-mock.com/books/swamplandia-karen-russell"
+                      author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234443"
+                    id: 98984500
+                    title: "Swamplandia!"
+                    description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
+                    publication_date: '2011-07-26'
   /books:
     x-summary: Books Collection
     get:
@@ -126,7 +153,7 @@ paths:
                   author: "https://private-f9a269-pageturnerapi.apiary-mock.com/authors/234455"
                 id: 98984590
                 title: "Hamlet"
-                description: "Death and destruction in medival Denmark."
+                description: "Death and destruction in medieval Denmark."
                 publication_date: '1600-07-08'
                 _embedded:
                   reviews:
@@ -426,6 +453,13 @@ definitions:
       birthdate:
         type: string
         format: date
+      _embedded:
+        type: object
+        properties:
+          books:
+            type: array
+            items: 
+              $ref: '#/definitions/Book'
     required: 
       - id
       - first_name
