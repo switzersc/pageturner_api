@@ -11,9 +11,9 @@ basePath: /
 schemes:
 - http
 consumes:
-- application/json
+- application/hal+json
 produces:
-- application/json
+- application/hal+json
 paths:
   /authors:
     x-summary: Authors
@@ -27,7 +27,7 @@ paths:
             items:
               $ref: '#/definitions/Author'
           examples:
-            application/json:
+            application/hal+json:
               - _links:
                   self: "https://pageturner.apiary.io/authors/234443"
                 id: 234443
@@ -45,7 +45,7 @@ paths:
           schema:
             $ref: '#/definitions/Author'
           examples:
-            application/json:
+            application/hal+json:
               _links:
                 self: "https://pageturner.apiary.io/authors/234443"
               id: 234443
@@ -65,7 +65,7 @@ paths:
             items:
               $ref: '#/definitions/Book'
           examples:
-            application/json:
+            application/hal+json:
               - _links:
                   self: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
                   author: "https://pageturner.apiary.io/authors/234443"
@@ -115,7 +115,7 @@ paths:
           schema:
             $ref: '#/definitions/Book'
           examples:
-            application/json:
+            application/hal+json:
               id: 98984500
               title: "Swamplandia!"
               description: "Thirteen-year-old Ava Bigtree has lived her entire life at Swamplandia!, her family’s island home and gator-wrestling theme park in the Florida Everglades. But when illness fells Ava’s mother, the park’s indomitable headliner, the family is plunged into chaos; her father withdraws, her sister falls in love with a spooky character known as the Dredgeman, and her brilliant big brother, Kiwi, defects to a rival park called The World of Darkness."
@@ -142,7 +142,7 @@ paths:
             items:
               $ref: '#/definitions/Review'
           examples:
-            application/json:
+            application/hal+json:
               - _links:
                   self: "https://pageturner.apiary.io/reviews/345900"
                   book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
@@ -190,7 +190,7 @@ paths:
           schema:
             $ref: '#/definitions/Review'
           examples:
-            application/json:
+            application/hal+json:
               _links:
                 self: "https://pageturner.apiary.io/reviews/346000"
                 book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
@@ -209,7 +209,7 @@ paths:
           schema:
             $ref: '#/definitions/Review'
           examples:
-            application/json:
+            application/hal+json:
               _links:
                 self: "https://pageturner.apiary.io/reviews/346000"
                 book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
@@ -235,7 +235,7 @@ paths:
           schema:
             $ref: '#/definitions/Review'
           examples:
-            application/json:
+            application/hal+json:
               _links:
                 self: "https://pageturner.apiary.io/reviews/346000"
                 book: "https://pageturner.apiary.io/books/swamplandia-karen-russel"
