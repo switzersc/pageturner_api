@@ -1,0 +1,149 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "PageTurner API"
+  description: PageTurner is a simple API allowing clients to view information about books, their authors, and their reviews from PageTurner users.
+  license:
+    name: MIT
+    url: https://github.com/switzersc/pageturner_api/blob/master/LICENSE
+host: pageturner.apiblueprint.org
+basePath: /
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /books:
+    x-summary: Books Collection
+    get:
+      summary: List All Books
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+          examples:
+            application/json:
+              - title: Favourite programming language?
+                description: xyz
+                publication_date: '2015-08-05'
+                author_id: 34589
+                reviews:
+                  - reviewer: Swift
+                    grade: A
+                  - reviewer: Python
+                    grade: B
+                  - reviewer: Objective-C
+                    grade: A
+                  - reviewer: Ruby
+                    grade: A
+  /reviews:
+    x-summary: Reviews Collection
+    get:
+      summary: List All Reviews
+      responses:
+        200:
+          description: Successful Response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Review'
+          examples:
+            application/json:
+              - title: Favourite programming language?
+                description: xyz
+                publication_date: '2015-08-05'
+                author_id: 34589
+                ratings:
+                  - reviewer: Swift
+                    grade: A
+                  - reviewer: Python
+                    grade: B
+                  - reviewer: Objective-C
+                    grade: A
+                  - reviewer: Ruby
+                    grade: A
+    post:
+      description: >-
+        You may create your own review using this action. It takes a JSON
+        object containing a review, and must reference the book it is associated with.
+      summary: Create a New Review
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Review'
+      responses:
+        201:
+          description: ''
+          schema:
+            $ref: '#/definitions/Review'
+          examples:
+            application/json:
+                question: Favourite programming language?
+                published_at: '2015-08-05T08:40:51.620Z'
+                choices:
+                  - choice: Swift
+                    votes: 0
+                  - choice: Python
+                    votes: 0
+                  - choice: Objective-C
+                    votes: 0
+                  - choice: Ruby
+                    votes: 0
+definitions:
+  Book:
+    title: Book
+    type: object
+    properties:
+      title:
+        type: string
+      publication_date:
+        type: string
+      author:
+        type: object
+        properties:
+          first_name:
+            type: string
+          last_name:
+            type: string
+          website:
+            type: string
+          birthdate:
+            type: string
+            format: date
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/Review'
+    required:
+      - title
+      - publication_date
+      - author
+  Review:
+    title: Review
+    type: object
+    properties:
+      reviewer_name:
+        type: string
+      reviewer_id:
+        type: integer
+        format: int32
+      score:
+        type: integer
+        format: int32
+      summary: 
+        type: string
+      full_text:
+        type: string
+    required:
+      - reviewer_name
+      - reviewer_id
+      - score
+      - summary
+      - full_text
