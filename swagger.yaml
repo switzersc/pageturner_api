@@ -6,7 +6,7 @@ info:
   license:
     name: MIT
     url: https://github.com/switzersc/pageturner_api/blob/master/LICENSE
-host: pageturner.apiblueprint.org
+host: private-f9a269-pageturnerapi.apiary-mock.com
 basePath: /
 schemes:
 - http
